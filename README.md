@@ -1,6 +1,3 @@
-Aqui está uma versão limpa e profissional do README.md para o seu projeto, sem o uso de emojis.
-
----
 
 # Gerador de Senhas Seguras
 
