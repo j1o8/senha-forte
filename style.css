@@ -1,0 +1,257 @@
+/* Importação da Fonte Principal */
+@import url('https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap');
+
+:root {
+    /* Paleta de Cores Premium Dark */
+    --branco: #f4f4f5;
+    --cor-de-fundo: #09090b;       /* Preto profundo de fundo */
+    --fundo-senha: #141416;        /* Fundo dos blocos / cards */
+    --fundo-texto: #1d1d21;        /* Fundo de inputs e botões */
+    --borda: #079c6b;              /* Verde esmeralda assinatura */
+    --borda-foco: #3b82f6;         /* Azul para indicar foco */
+    
+    /* Cores de Força de Senha */
+    --fraca: #ef4444;
+    --media: #eab308;
+    --forte: #22c55e;
+
+    /* Fontes */
+    --WDXL: 'Inter', system-ui, -apple-system, sans-serif;
+    --Lubrifont: 'WDXL Lubrifont', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+body {
+    color: var(--branco);
+    background-color: var(--cor-de-fundo);
+    font-family: var(--WDXL);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* CONTAINER DO CONTEÚDO */
+.conteudo {
+    background: var(--fundo-senha);
+    border: 1px solid #2e2e33;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* TÍTULOS */
+.conteudo-titulo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-principal {
+    font-family: var(--Lubrifont);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    /* Efeito de degradê no texto corrigido sem alertas no editor */
+    background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titulo-secundario {
+    font-size: 14px;
+    color: #a1a1aa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+}
+
+/* CAIXA DE SAÍDA DA SENHA */
+.conteudo-senha {
+    display: flex;
+    align-items: center;
+    background: var(--fundo-texto);
+    border: 1px solid #2e2e33;
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 24px;
+    transition: border-color 0.3s;
+}
+
+.conteudo-senha:focus-within {
+    border-color: var(--borda-foco);
+}
+
+#campo-senha {
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    color: var(--branco);
+    outline: none;
+    letter-spacing: 1.5px;
+}
+
+/* SEÇÃO DE PARÂMETROS / CONFIGURAÇÕES */
+.parametro {
+    background-color: transparent;
+    border: none;
+    margin-top: 0;
+    padding: 0;
+}
+
+.parametro-titulo {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a1a1aa;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* SELETOR DE TAMANHO DA SENHA */
+.parametro-senha {
+    width: 100%;
+    margin: 0 0 24px 0;
+}
+
+.parametro-coluna__senha {
+    display: flex;
+    flex-direction: column;
+}
+
+.parametro-senha-botoes {
+    display: flex;
+    align-items: center;
+    background: var(--fundo-texto);
+    border: 1px solid #2e2e33;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.parametro-senha__botao {
+    background-color: transparent;
+    color: var(--branco);
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.parametro-senha__botao:hover {
+    background: #2e2e33;
+    color: var(--borda-foco);
+}
+
+.parametro-senha__texto {
+    flex-grow: 1;
+    text-align: center;
+    padding: 0;
+    border: none;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* CHECKBOXES (OPÇÕES DE CARACTERES) */
+.parametro-checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid #2e2e33;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.parametro-checkbox label {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: var(--branco);
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #2e2e33;
+    border-radius: 6px;
+    background: var(--fundo-texto);
+    margin-right: 12px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox:checked {
+    background: var(--borda);
+    border-color: var(--borda);
+}
+
+.checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* BARRA E TEXTO DE FORÇA DA SENHA */
+.forca {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid #2e2e33;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Classes dinâmicas que o JS adiciona para mudar a cor do bloco de força */
+.forca.fraca {
+    border-color: var(--fraca);
+    color: var(--fraca);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.forca.media {
+    border-color: var(--media);
+    color: var(--media);
+    background: rgba(234, 179, 8, 0.1);
+}
+
+.forca.forte {
+    border-color: var(--forte);
+    color: var(--forte);
+    background: rgba(34, 197, 94, 0.1);
+}
